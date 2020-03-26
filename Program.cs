@@ -14,12 +14,14 @@ namespace ClientSideSelfBot
         public static string token = "";
         public static string owner = "";
         public static string bot = "";
+        public static string prefix = "";
 
         public static List<string> admin = new List<string>();
         public static List<string> mod = new List<string>();
         public static List<string> trusted = new List<string>();
         public static List<string> temp = new List<string>();
 
+        public static bool selfbot;
         readonly bool disposed;
 
         static void Main()
@@ -43,9 +45,9 @@ namespace ClientSideSelfBot
                 };
                 var commandConfig = new CommandsNextConfiguration
                 {
-                    StringPrefix = ";", // Prefix for the bot
+                    StringPrefix = prefix, // Prefix for the bot
                     EnableDefaultHelp = false, // removed the default help command so we can make our own
-                    SelfBot = false, // turn this to true if your using this as a self bot only also configureable in config.json
+                    SelfBot = selfbot, // turn this to true if your using this as a self bot only also configureable in config.json
                     CaseSensitive = false
                 };
                 discordClient = new DiscordClient(clientConfig); // makes a new discord client and uses our client config

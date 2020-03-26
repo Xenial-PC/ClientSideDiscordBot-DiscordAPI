@@ -17,6 +17,8 @@ namespace ClientSideSelfBot
                     var configJson = new ConfigJson
                     {
                         Token = "",
+                        SelfBot = false,
+                        Prefix = ";",
                         Owner = "",
                         Bot = "",
 
@@ -61,6 +63,8 @@ namespace ClientSideSelfBot
                 var cfgJson = JsonConvert.DeserializeObject<ConfigJson>(json);
 
                 Program.token = cfgJson.Token;
+                Program.selfbot = cfgJson.SelfBot;
+                Program.prefix = cfgJson.Prefix;
                 Program.owner = cfgJson.Owner;
                 Program.bot = cfgJson.Bot;
                 Program.admin = cfgJson.Admin;

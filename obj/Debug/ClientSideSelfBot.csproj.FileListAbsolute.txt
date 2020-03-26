@@ -1,0 +1,17 @@
+F:\VSRepos\VSStudio\C#\ClientSideSelfBot\obj\Debug\ClientSideSelfBot.csprojAssemblyReference.cache
+F:\VSRepos\VSStudio\C#\ClientSideSelfBot\obj\Debug\ClientSideSelfBot.csproj.CoreCompileInputs.cache
+F:\VSRepos\VSStudio\C#\ClientSideSelfBot\bin\Debug\ClientSideSelfBot.exe.config
+F:\VSRepos\VSStudio\C#\ClientSideSelfBot\bin\Debug\ClientSideSelfBot.exe
+F:\VSRepos\VSStudio\C#\ClientSideSelfBot\bin\Debug\ClientSideSelfBot.pdb
+F:\VSRepos\VSStudio\C#\ClientSideSelfBot\bin\Debug\DSharpPlus.CommandsNext.dll
+F:\VSRepos\VSStudio\C#\ClientSideSelfBot\bin\Debug\DSharpPlus.dll
+F:\VSRepos\VSStudio\C#\ClientSideSelfBot\bin\Debug\DSharpPlus.Interactivity.dll
+F:\VSRepos\VSStudio\C#\ClientSideSelfBot\bin\Debug\Newtonsoft.Json.dll
+F:\VSRepos\VSStudio\C#\ClientSideSelfBot\bin\Debug\DSharpPlus.xml
+F:\VSRepos\VSStudio\C#\ClientSideSelfBot\bin\Debug\DSharpPlus.CommandsNext.xml
+F:\VSRepos\VSStudio\C#\ClientSideSelfBot\bin\Debug\DSharpPlus.Interactivity.xml
+F:\VSRepos\VSStudio\C#\ClientSideSelfBot\bin\Debug\Newtonsoft.Json.xml
+F:\VSRepos\VSStudio\C#\ClientSideSelfBot\obj\Debug\ClientSideSelfBot.csproj.CopyComplete
+F:\VSRepos\VSStudio\C#\ClientSideSelfBot\obj\Debug\ClientSideSelfBot.exe
+F:\VSRepos\VSStudio\C#\ClientSideSelfBot\obj\Debug\ClientSideSelfBot.pdb
+F:\VSRepos\VSStudio\C#\ClientSideSelfBot\bin\Debug\WindowsInput.dll

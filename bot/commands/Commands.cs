@@ -2,8 +2,6 @@
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
 using System;
-using DSharpPlus.EventArgs;
-using DSharpPlus.Entities;
 
 namespace ClientSideSelfBot
 {
