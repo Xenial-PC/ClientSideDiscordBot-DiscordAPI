@@ -8,11 +8,15 @@ Discord self bot made with C# using DiscordAPI I will keep updating this as I co
 make sure to fix the NuGet packages loading the project
 
 want to see whats happening with this bot go to https://trello.com/b/4SJ5ZHZR/clientsideselfbot
+### Version 0.1b
+Settings:
+  * SelfBot - set it to self bot or server side bot
+  * Prefix - set your own prefix in the config.json file
+  
 ### Version 0.1a
 Settings:
   * discordID ranks - use user ids to give people ranks
-  * SelfBot - set it to self bot or server side bot
-  * Prefix - set your own prefix in the config.json file
+  
 Commands:
   * ;cmds or ;help - will print the commands below
   * ;msg (message) - uses the bot to repeate a message!
