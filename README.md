@@ -12,6 +12,7 @@ want to see whats happening with this bot go to https://trello.com/b/4SJ5ZHZR/cl
 Settings:
   * discordID ranks - use user ids to give people ranks
   * SelfBot - set it to self bot or server side bot
+  * Prefix - set your own prefix in the config.json file
 Commands:
   * ;cmds or ;help - will print the commands below
   * ;msg (message) - uses the bot to repeate a message!
