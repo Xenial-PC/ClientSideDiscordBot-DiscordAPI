@@ -13,11 +13,16 @@ namespace ClientSideSelfBot
 
             "User Commands: \n" +
             "• test - test the bot with test \n" +
-            "• msg (message)- send a message as the bot \n" +
-            "• count min, max - starts from the min and counts to the max use in #counting\n\n" +
+            "• msg (message)- send a message as the bot \n\n" +
 
             "Trusted Rank Commands: \n" +
             "• ping - pings the hosts pc with a sound \n" +
+            "• game (GuessNumber) - have a chance to put my pc to sleep\n\n" +
+
+            "Admin Rank Commands: \n" +
+            "• ping - pings the hosts pc with a sound \n" +
+            "• game (GuessNumber) - have a chance to put my pc to sleep\n" +
+            "• count min, max - starts from the min and counts to the max make sure to use a comma and pls use in #counting" +
             "```"; // Our customized help command
 
         [Command("test"), Description("Prints Test")] // commands go up here
