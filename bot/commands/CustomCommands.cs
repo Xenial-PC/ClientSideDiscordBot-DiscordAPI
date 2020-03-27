@@ -17,9 +17,8 @@ namespace ClientSideSelfBot
                 var ID = discordID.ToString(); // parses discordID to string
                 var commands = e.Message.Content; // Custom commands use the stuff inside this comment
 
-                if (!Program.bot.Contains(ID))
+                if (!Program.bot.Contains(ID) && !Program.selfbot)
                 {
-
                     if (e.Message.Content.Contains("source code") || e.Message.Content.Contains("find fn cheats")) // Antipaster code for fun
                     {
                         await e.Message.RespondAsync("You Dirty Twat Dont C&P!");
