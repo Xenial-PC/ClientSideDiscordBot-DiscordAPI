@@ -1,7 +1,9 @@
-﻿using DSharpPlus;
+﻿using ClientSideSelfBot.bot.logs;
+using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace ClientSideSelfBot
@@ -27,6 +29,7 @@ namespace ClientSideSelfBot
         static void Main()
         {
             Config.LoadConfig(); // loads the config
+            AdvancedLogger.LoadAdvancedLoggerConfig(); // Loads the AdvancedLogger config
 
             var start = new Program(); // this is just for ese of acess
             start.StartAsync().ConfigureAwait(false).GetAwaiter().GetResult(); // runs the start task, configured await to be false, gets the awaiter in the Task and then returns the result
@@ -61,6 +64,7 @@ namespace ClientSideSelfBot
                 commandsNext.CommandErrored += Logs.CommandErroredAsync; // gets the errored commands from the logs
                 commandsNext.CommandExecuted += Logs.CommandExecutedAsync; // gts the executed commands from the logs
 
+                await AdvancedLogger.MessageLoggerAsync(); // Logs the new messages in a log file
                 CustomCommands.Custom(); // gets our custom commands from the logs
 
                 await discordClient.ConnectAsync(); // await the connection from the discord client

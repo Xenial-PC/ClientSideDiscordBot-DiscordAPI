@@ -8,11 +8,11 @@ namespace ClientSideSelfBot
     public class Commands
     {
         readonly string helpCommand = @"```" +
-            "Commands: \n" +
-            "Prefix ;\n\n" +
-
+            $"Prefix \"{Program.prefix}\"\n\n" +
+            
             "User Commands: \n" +
             "• test - test the bot with test \n" +
+            "• info - prints where to get your own bot\n" +
             "• msg (message)- send a message as the bot \n\n" +
 
             "Trusted Rank Commands: \n" +
@@ -20,8 +20,6 @@ namespace ClientSideSelfBot
             "• game (GuessNumber) - have a chance to put my pc to sleep\n\n" +
 
             "Admin Rank Commands: \n" +
-            "• ping - pings the hosts pc with a sound \n" +
-            "• game (GuessNumber) - have a chance to put my pc to sleep\n" +
             "• count min, max - starts from the min and counts to the max make sure to use a comma and pls use in #counting" +
             "```"; // Our customized help command
 

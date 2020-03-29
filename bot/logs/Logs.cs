@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using DSharpPlus.Entities;
 using DSharpPlus.EventArgs;
 using DSharpPlus.CommandsNext;
+using DSharpPlus;
 
 namespace ClientSideSelfBot
 {
@@ -24,7 +25,7 @@ namespace ClientSideSelfBot
         {
             if (!e.Author.IsBot && e.Author != e.Client.CurrentUser)
             {
-                if (e.Message.MessageType == MessageType.Default)
+                if (e.Message.MessageType == MessageType.Default && e.Channel.Type != ChannelType.Private)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.Write($"[{DateTime.Now}] ");
