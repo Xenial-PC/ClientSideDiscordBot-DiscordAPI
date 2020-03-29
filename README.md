@@ -9,6 +9,9 @@ make sure to fix the NuGet packages loading the project
 
 want to see whats happening with this bot go to https://trello.com/b/4SJ5ZHZR/clientsideselfbot
 
+### For the config.json use discord IDS for the ranks/roles
+### Example ("Bot": "DiscordID") or for a list ("Admin": [ "Username", "DiscordID", "", ""])
+
 ### Coming Soon!
 * Emoji spammer
 * Server Admin commands
