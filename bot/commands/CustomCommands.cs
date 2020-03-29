@@ -69,7 +69,7 @@ namespace ClientSideSelfBot
                                 comeback = rand.Next(1, 6);
                                 break;
                             default:
-                                await e.Message.RespondAsync(message + " ah fuck off!");
+                                await e.Message.RespondAsync(message + "Error!");
                                 break;
                         }
                     }
