@@ -63,7 +63,9 @@
   <ItemGroup>
     <Compile Include="bot\commands\Commands.cs" />
     <Compile Include="bot\commands\FormatMessage.cs" />
+    <Compile Include="bot\commands\MassCommands.cs" />
     <Compile Include="bot\commands\MessageSpammer.cs" />
+    <Compile Include="bot\commands\Roast.cs" />
     <Compile Include="bot\config\Config.cs" />
     <Compile Include="bot\config\ConfigJson.cs" />
     <Compile Include="bot\commands\CustomCommands.cs" />
@@ -79,5 +81,6 @@
   <ItemGroup>
     <Content Include=".nuget\mouse-keyboard-hook-logo.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

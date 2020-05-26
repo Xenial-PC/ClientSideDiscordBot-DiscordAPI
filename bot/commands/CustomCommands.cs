@@ -2,6 +2,9 @@
 using WindowsInput;
 using System.Windows.Forms;
 using ClientSideSelfBot.bot.commands;
+using DSharpPlus.Interactivity;
+using DSharpPlus.Entities;
+using System.Collections.Generic;
 
 namespace ClientSideSelfBot
 {
@@ -11,16 +14,16 @@ namespace ClientSideSelfBot
         {
             var rand = new Random();
             var correctGuess = rand.Next(1, 11);
-            var comeback = rand.Next(1, 5);
+            var roast = rand.Next(1, Roast._roasts.Count);
             var prefix = Program.prefix; // we need this incase someone changes the prefix in the config
 
             Program.discordClient.MessageCreated += async e =>
             {
                 var discordID = e.Message.Author.Id; // gets discordID
                 var ID = discordID.ToString(); // parses discordID to string
-                var commands = e.Message.Content; // Custom commands use the stuff inside this comment
+                var message = e.Message.Content; // Custom commands use the stuff inside this comment
 
-                if (Program.selfbot || !Program.bot.Contains(ID))
+                if (Program.selfbot || !Program.bot.Contains(ID) && !Program.isBanned(ID))
                 {
                     if (e.Message.Content.Contains("source code") || e.Message.Content.Contains("find fn cheats")) // Antipaster code for fun
                     {
@@ -28,50 +31,26 @@ namespace ClientSideSelfBot
                     }
 
                     // User Commands 
-                    if (e.Message.Content.Contains($"{prefix}msg")) // if the message has the command anywhere in the code it will run
+                    if (e.Message.Content.StartsWith(Command("msg"))) // if the message has the command anywhere in the code it will run
                     {
-                        FormatMessage.FormatString(5, e.Message.Content.ToString());
-                        var msg = FormatMessage._output;
+                        FormatMessage.FormatString(5, message); // Formats the string to get just the message
+                        var msg = FormatMessage._output; // sets the strings output to the message
 
                         await e.Message.RespondAsync(msg);
                     }
 
-                    if (e.Message.Content.Contains($"{prefix}info"))
+                    if (e.Message.Content.StartsWith(Command("info")))
                     {
                         await e.Message.RespondAsync(@"Find My Source At: " + "\n" + "https://github.com/Xenial-PC/ClientSideSelfBot");
                     }
 
-                    if (e.Message.Content.Contains($"{prefix}roast"))
+                    if (e.Message.Content.StartsWith(Command("roast")))
                     {
-                        FormatMessage.FormatString(7, commands);
-                        var message = FormatMessage._output;
+                        FormatMessage.FormatString(7, message); // Formats the string to get just the name
+                        var msg = FormatMessage._output; // sets the strings output to the message
 
-                        switch (comeback)
-                        {
-                            case 1:
-                                await e.Message.RespondAsync(message + " What a loser!");
-                                comeback = rand.Next(1, 6);
-                                break;
-                            case 2:
-                                await e.Message.RespondAsync(message + " Paster Much?!");
-                                comeback = rand.Next(1, 6);
-                                break;
-                            case 3:
-                                await e.Message.RespondAsync(message + " What a sad little skid!");
-                                comeback = rand.Next(1, 6);
-                                break;
-                            case 4:
-                                await e.Message.RespondAsync(message + " Want free stuff go ask your parents you skid!");
-                                comeback = rand.Next(1, 6);
-                                break;
-                            case 5:
-                                await e.Message.RespondAsync(message + " no ones listening to you, you poor little baby? gunna cry LMAO");
-                                comeback = rand.Next(1, 6);
-                                break;
-                            default:
-                                await e.Message.RespondAsync(message + "Error!");
-                                break;
-                        }
+                        await e.Message.RespondAsync($"{msg} {Roast._roasts[roast]}"); // responds with the name and the roast
+                        roast = rand.Next(1, Roast._roasts.Count); // sets the number to a new roast
                     }
 
                     // Temp Commands
@@ -83,20 +62,20 @@ namespace ClientSideSelfBot
                     // Trusted Commands
                     if (Program.owner.Contains(ID) || Program.selfbot || Program.admin.Contains(ID) || Program.mod.Contains(ID) || Program.trusted.Contains(ID))
                     {
-                        if (e.Message.Content.Contains($"{prefix}ping"))
+                        if (e.Message.Content.StartsWith(Command("ping")))
                         {
                             await e.Message.RespondAsync("Pinged!");
                             Console.Beep(); // Makes a beep sound through the console on the hosts pc
                         }
 
-                        if (e.Message.Content.Contains($"{prefix}ans"))
+                        if (e.Message.Content.StartsWith(Command("ans")))
                         {
                             Console.WriteLine(correctGuess);
                         }
 
-                        if (e.Message.Content.Contains($"{prefix}game"))
+                        if (e.Message.Content.StartsWith(Command("game")))
                         {
-                            if (e.Message.Content.Contains($"{prefix}game " + correctGuess))
+                            if (e.Message.Content.Contains(Command("game " + correctGuess)))
                             {
                                 await e.Message.RespondAsync("Correct!");
                                 correctGuess = rand.Next(1, 11);
@@ -119,9 +98,9 @@ namespace ClientSideSelfBot
                     // Admin Commands
                     if (Program.owner.Contains(ID) || Program.selfbot || Program.admin.Contains(ID))
                     {
-                        if (e.Message.Content.Contains($"{prefix}count"))
+                        if (e.Message.Content.StartsWith(Command("count")))
                         {
-                            FormatMessage.FormatStringInt(7, e.Message.Content.ToString());
+                            FormatMessage.FormatStringInt(7, message);
                             var minNum = FormatMessage._min; // gets the min output from formatting the message
                             var maxNum = FormatMessage._max; // gets the max output from formatting the message
 
@@ -136,10 +115,24 @@ namespace ClientSideSelfBot
                     // Owner Commands
                     if (Program.owner.Contains(ID) || Program.selfbot)
                     {
-                        var msg = e.Message.Content.ToString();
-                        if (e.Message.Content.Contains($"{prefix}spam"))
+                        if (e.Message.Content.StartsWith(Command("spam")))
                         {
-                            await MessageSpammer.SpamAsync(e, msg);
+                            await MessageSpammer.SpamAsync(e, message);
+                        }
+
+                        if (e.Message.Content.StartsWith(Command("mass.delete.dm")))
+                        {
+                            await MassCommands.MassDMMessageDeleteAsync();
+                        }
+
+                        if (e.Message.Content.StartsWith(Command("mass.dm")))
+                        {
+                            await MessageSpammer.MassDMSpamAsync(message);
+                        }
+
+                        if (e.Message.Content.StartsWith(Command("mass.delete.msg")))
+                        {
+                            await MassCommands.MassMessageDeleteAsync(e);
                         }
                     }
                 }
@@ -149,6 +142,12 @@ namespace ClientSideSelfBot
         public static void Sleep()
         {
             Application.SetSuspendState(PowerState.Suspend, true, false);
+        }
+
+        public static string Command(string command)
+        {
+            var prefix = Program.prefix;
+            return $"{prefix}{command}";
         }
     }
 }

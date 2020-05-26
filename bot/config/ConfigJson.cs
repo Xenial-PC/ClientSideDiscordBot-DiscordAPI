@@ -13,6 +13,5 @@ namespace ClientSideSelfBot
         public List<string> Mod { get; set; }
         public List<string> Trusted { get; set; }
         public List<string> Temp { get; set; }
-        
     }
 }

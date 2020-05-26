@@ -1,9 +1,9 @@
-﻿using ClientSideSelfBot.bot.logs;
+﻿using ClientSideSelfBot.bot.commands;
+using ClientSideSelfBot.bot.logs;
 using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
 
 namespace ClientSideSelfBot
@@ -24,18 +24,21 @@ namespace ClientSideSelfBot
         public static List<string> temp = new List<string>();
 
         public static bool selfbot;
+        public static bool customPath;
         readonly bool disposed;
 
-        static void Main()
+        static async Task Main()
         {
             Config.LoadConfig(); // loads the config
             AdvancedLogger.LoadAdvancedLoggerConfig(); // Loads the AdvancedLogger config
 
-            var start = new Program(); // this is just for ese of acess
-            start.StartAsync().ConfigureAwait(false).GetAwaiter().GetResult(); // runs the start task, configured await to be false, gets the awaiter in the Task and then returns the result
+            await Roast.InstallRoastList(); // Installs the default roast list
+            await Roast.FillRoastList(); // fills the roast list with the default roasts
+
+            StartAsync().ConfigureAwait(false).GetAwaiter().GetResult(); // runs the start task, configured await to be false, gets the awaiter in the Task and then returns the result
         }
 
-        async Task StartAsync()
+        static async Task StartAsync()
         {
             try
             {
@@ -50,7 +53,7 @@ namespace ClientSideSelfBot
                 {
                     StringPrefix = prefix, // Prefix for the bot
                     EnableDefaultHelp = false, // removed the default help command so we can make our own
-                    SelfBot = selfbot, // turn this to true if your using this as a self bot only also configureable in config.json
+                    SelfBot = selfbot, // turn this to true if your using this as a self bot only also configurable in config.json
                     CaseSensitive = false
                 };
                 discordClient = new DiscordClient(clientConfig); // makes a new discord client and uses our client config
@@ -59,9 +62,9 @@ namespace ClientSideSelfBot
                 commandsNext.RegisterCommands<Commands>(); // registers the commands
 
                 discordClient.Heartbeated += Logs.HeartBeatRecivedAsync; // gets the heartbeat from the logs
-                discordClient.MessageCreated += Logs.MessageRecivedAsync; // gets the messages recived from the logs
+                discordClient.MessageCreated += Logs.MessageRecivedAsync; // gets the messages received from the logs
 
-                commandsNext.CommandErrored += Logs.CommandErroredAsync; // gets the errored commands from the logs
+                commandsNext.CommandErrored += Logs.CommandErroredAsync; // gets the error-ed commands from the logs
                 commandsNext.CommandExecuted += Logs.CommandExecutedAsync; // gts the executed commands from the logs
 
                 await AdvancedLogger.MessageLoggerAsync(); // Logs the new messages in a log file
