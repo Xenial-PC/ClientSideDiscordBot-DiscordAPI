@@ -32,3 +32,20 @@ F:\VSRepos\VSStudio\C#\ClientSideSelfBot\ClientSideSelfBot\obj\Debug\ClientSideS
 F:\VSRepos\VSStudio\C#\ClientSideSelfBot\ClientSideSelfBot\obj\Debug\ClientSideSelfBot.csproj.CopyComplete
 F:\VSRepos\VSStudio\C#\ClientSideSelfBot\ClientSideSelfBot\obj\Debug\ClientSideSelfBot.exe
 F:\VSRepos\VSStudio\C#\ClientSideSelfBot\ClientSideSelfBot\obj\Debug\ClientSideSelfBot.pdb
+D:\Backup of drive\VSRepos\VSStudio\C#\Bots\ClientSideSelfBot Discord API\obj\Debug\ClientSideSelfBot.csprojAssemblyReference.cache
+D:\Backup of drive\VSRepos\VSStudio\C#\Bots\ClientSideSelfBot Discord API\obj\Debug\ClientSideSelfBot.csproj.CoreCompileInputs.cache
+D:\Backup of drive\VSRepos\VSStudio\C#\Bots\ClientSideSelfBot Discord API\obj\Debug\ClientSideSelfBot.exe
+D:\Backup of drive\VSRepos\VSStudio\C#\Bots\ClientSideSelfBot Discord API\obj\Debug\ClientSideSelfBot.pdb
+D:\Backup of drive\VSRepos\VSStudio\C#\Bots\ClientSideSelfBot Discord API\bin\Debug\ClientSideSelfBot.exe.config
+D:\Backup of drive\VSRepos\VSStudio\C#\Bots\ClientSideSelfBot Discord API\bin\Debug\ClientSideSelfBot.exe
+D:\Backup of drive\VSRepos\VSStudio\C#\Bots\ClientSideSelfBot Discord API\bin\Debug\ClientSideSelfBot.pdb
+D:\Backup of drive\VSRepos\VSStudio\C#\Bots\ClientSideSelfBot Discord API\bin\Debug\DSharpPlus.CommandsNext.dll
+D:\Backup of drive\VSRepos\VSStudio\C#\Bots\ClientSideSelfBot Discord API\bin\Debug\DSharpPlus.dll
+D:\Backup of drive\VSRepos\VSStudio\C#\Bots\ClientSideSelfBot Discord API\bin\Debug\DSharpPlus.Interactivity.dll
+D:\Backup of drive\VSRepos\VSStudio\C#\Bots\ClientSideSelfBot Discord API\bin\Debug\Newtonsoft.Json.dll
+D:\Backup of drive\VSRepos\VSStudio\C#\Bots\ClientSideSelfBot Discord API\bin\Debug\WindowsInput.dll
+D:\Backup of drive\VSRepos\VSStudio\C#\Bots\ClientSideSelfBot Discord API\bin\Debug\DSharpPlus.xml
+D:\Backup of drive\VSRepos\VSStudio\C#\Bots\ClientSideSelfBot Discord API\bin\Debug\DSharpPlus.CommandsNext.xml
+D:\Backup of drive\VSRepos\VSStudio\C#\Bots\ClientSideSelfBot Discord API\bin\Debug\DSharpPlus.Interactivity.xml
+D:\Backup of drive\VSRepos\VSStudio\C#\Bots\ClientSideSelfBot Discord API\bin\Debug\Newtonsoft.Json.xml
+D:\Backup of drive\VSRepos\VSStudio\C#\Bots\ClientSideSelfBot Discord API\obj\Debug\ClientSideSelfBot.csproj.CopyComplete

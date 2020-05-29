@@ -61,16 +61,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bot\commands\Commands.cs" />
-    <Compile Include="bot\commands\FormatMessage.cs" />
-    <Compile Include="bot\commands\MassCommands.cs" />
-    <Compile Include="bot\commands\MessageSpammer.cs" />
-    <Compile Include="bot\commands\Roast.cs" />
-    <Compile Include="bot\config\Config.cs" />
-    <Compile Include="bot\config\ConfigJson.cs" />
-    <Compile Include="bot\commands\CustomCommands.cs" />
-    <Compile Include="bot\logs\AdvancedLogger.cs" />
-    <Compile Include="bot\logs\Logs.cs" />
+    <Compile Include="Bot\Commands\FormatMessage.cs" />
+    <Compile Include="Bot\Commands\MassCommands.cs" />
+    <Compile Include="Bot\Commands\MessageSpammer.cs" />
+    <Compile Include="Bot\Commands\Roast.cs" />
+    <Compile Include="Bot\Config\Config.cs" />
+    <Compile Include="Bot\Config\ConfigJson.cs" />
+    <Compile Include="Bot\Commands\Commands.cs" />
+    <Compile Include="Bot\Logs\AdvancedLogger.cs" />
+    <Compile Include="Bot\Logs\Logs.cs" />
+    <Compile Include="Bot\Roles\RoleCreator.cs" />
+    <Compile Include="Bot\Roles\RoleProperties.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

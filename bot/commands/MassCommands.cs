@@ -1,39 +1,34 @@
-﻿using DSharpPlus.Entities;
-using DSharpPlus.EventArgs;
-using System;
-using System.Collections.Generic;
+﻿using DSharpPlus.EventArgs;
+using System.Threading;
 using System.Threading.Tasks;
-using WindowsInput;
+// ReSharper disable TooManyChainedReferences
 
-namespace ClientSideSelfBot.bot.commands
+namespace ClientSideSelfBot.Bot.Commands
 {
     public class MassCommands
     {
-        public async static Task MassDMMessageDeleteAsync()
+        public static async Task MassDmMessageDeleteAsync()
         {
-            var DC = Program.discordClient;
-            foreach (DiscordDmChannel DMC in DC.PrivateChannels) // Gets all the dm channels you have
+            var dc = Program.DiscordClient;
+            foreach (var dmc in dc.PrivateChannels) // Gets all the dm channels you have
             {
-                var messages = await DMC.GetMessagesAsync(); // gets all the messages
-                foreach (DiscordMessage DM in messages) // goes through the list of messages
+                var messages = await dmc.GetMessagesAsync().ConfigureAwait(false); // gets all the messages
+                foreach (var dm in messages) // goes through the list of messages
                 {
-                    if (DM.Author.Id == Program.discordClient.CurrentUser.Id) // checks for the bots ID
-                    {
-                        await DM.Channel.DeleteMessageAsync(DM);
-                        await Simulate.Events().Wait(843).Invoke(); // Waits .84 secs due to discords API
-                    }
+                    if (dm.Author.Id != Program.DiscordClient.CurrentUser.Id) continue;
+                    await dm.Channel.DeleteMessageAsync(dm).ConfigureAwait(false);
+                    Thread.Sleep(665); // Waits . secs due to discords API
                 }
             }
         }
 
-        public async static Task MassMessageDeleteAsync(MessageCreateEventArgs e)
+        public static async Task MassMessageDeleteAsync(MessageCreateEventArgs e)
         {
-            var messages = await e.Channel.GetMessagesAsync();
-
-            foreach (DiscordMessage msg in messages)
+            var messages = await e.Channel.GetMessagesAsync().ConfigureAwait(false);
+            foreach (var msg in messages)
             {
-                await msg.Channel.DeleteMessageAsync(msg);
-                await Simulate.Events().Wait(843).Invoke(); // Waits .84 secs due to discords API
+                await msg.Channel.DeleteMessageAsync(msg).ConfigureAwait(false);
+                Thread.Sleep(665); // Waits .84 secs due to discords API
             }
         }
     }
