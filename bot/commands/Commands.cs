@@ -177,7 +177,8 @@ namespace ClientSideSelfBot.Bot.Commands
                             FormatMessage.FormatString(8, e.Message.Content);
                             AddUser(FormatMessage.AdvancedOutputOne.Trim().TrimEnd('>'));
                             await e.Message.RespondAsync($"Banned! <@!{FormatMessage.Output}").ConfigureAwait(false);
-                            RoleProperties.BannedList.Add(FormatMessage.Output.Trim().TrimEnd('>')); }
+                            RoleProperties.BannedList.Add(FormatMessage.Output.Trim().TrimEnd('>'));
+                        }
                     }
 
                     // Owner Commands
@@ -255,9 +256,7 @@ namespace ClientSideSelfBot.Bot.Commands
             {
                 ChangeRank(user, "Roles/Banned.txt");
                 RoleProperties.BannedList.Remove(user);
-
                 File.AppendAllText("Roles/Banned.txt", $"{user}" + "\n");
-
             }
         }
     }
